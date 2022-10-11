@@ -15,3 +15,12 @@ export const withdrawMoney = (amount) => {
         })
     }
 }
+
+export const createUser = (user) => {
+    return (dispatch) => {
+        dispatch({
+            type: "create",
+            payload: user
+        })
+    }
+}
