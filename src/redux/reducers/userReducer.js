@@ -2,7 +2,7 @@
 
 const reducer = (state = [], action) => {
     switch (action.type) {
-        case "create":
+        case "add":
             return [...state, action.payload];
         default:
             return state;

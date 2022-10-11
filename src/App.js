@@ -1,8 +1,9 @@
 import './App.css';
 import {useSelector, useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
-import {actionCreators} from "./state/index"
 import {useState} from "react";
+import * as accountActions from './redux/actions/accountActions'
+import * as userActions from './redux/actions/userActions'
 
 function App() {
 
@@ -11,13 +12,12 @@ function App() {
     const account = useSelector(state => state.account);
     const userArr = useSelector(state => state.user);
 
-    const dispatch = useDispatch()
-
-    const {depositMoney, withdrawMoney, createUser} = bindActionCreators(actionCreators, dispatch)
+    const { depositMoney, withdrawMoney } = bindActionCreators(accountActions, useDispatch())
+    const { addUser } = bindActionCreators(userActions, useDispatch())
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        createUser(userName)
+        addUser(userName)
     }
 
     return (
